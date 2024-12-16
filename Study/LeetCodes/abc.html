@@ -1,0 +1,30 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+import time
+import logging
+
+def login_to_leetcode(username, password):
+    driver.get("https://www.leetcode.com/accounts/login/")
+    time.sleep(2)
+
+    # Find username and password fields and input the credentials
+    driver.find_element("id", "id_login").send_keys(username)
+    driver.find_element("id", "id_password").send_keys(password)
+    driver.find_element("id", "id_password").send_keys(Keys.RETURN)
+    time.sleep(10)
+
+
+username = "Buuu29"
+password = "Targaryen4life!"
+
+logging.basicConfig(filename='example.log', filemode='w', encoding='utf-8', level=logging.INFO)
+
+driver = webdriver.Chrome()
+
+login_to_leetcode(username, password)
+
+driver.quit()
